@@ -1,0 +1,25 @@
+@import '../../../../styles.css';
+
+#page-wrapper {
+  min-height: 100vh
+}
+#wrapper {
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100%;
+  background-color: #2f4050;
+  color: #676a6c;
+  width: 100%;
+  display: flex
+}
+#page-wrapper {
+  padding: 0 15px;
+  position: relative !important;
+  flex-shrink: 1;
+  width: calc(100% - 220px)
+}
+.wrapper {
+  padding: 0 20px;
+}
+.wrapper-content {
+  padding: 20px 10px 40px;
+}

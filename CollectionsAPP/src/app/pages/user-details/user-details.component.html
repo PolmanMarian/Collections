@@ -1,0 +1,30 @@
+<app-page-wrapper>
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <div class="ibox product-detail">
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="font-bold m-b-xs">{{user.username}}</h1>
+              <strong>A little piece of a big personality</strong>
+              <hr>
+              <h2>Collections</h2>
+              <div>
+                <ul style="font-size: 18px">
+                  <li *ngFor="let collection of this.user.collections" (click)="onClickCollectionName(collection.name)">{{collection.name}}</li>
+                </ul>
+              </div>
+              <hr>
+              <div>
+                <div *ngIf = "!isCurrentUser()" class="btn-group">
+                  <button (click)="onContactUser()" class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i> Contact user</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-page-wrapper>

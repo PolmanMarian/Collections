@@ -1,0 +1,48 @@
+@import "../../../../../styles.css";
+
+.navbar {
+  border: 0
+}
+.navbar-top-links li {
+  display: inline-block;
+  align-self: center
+}
+.navbar-top-links li a {
+  padding: 20px 10px;
+  min-height: 50px
+}
+.nav-header {
+  padding: 33px 25px;
+  background-color: #2f4050;
+}
+.nav-header a {
+  color: #dfe4ed
+}
+.navbar-form-custom .form-group {
+  margin-bottom: 0
+}
+.nav.navbar-top-links a {
+  font-size: 14px
+}
+.navbar-form-custom .form-control {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: medium none;
+  font-size: 14px;
+  height: 60px;
+  margin: 0;
+  z-index: 2000
+}
+.navbar.navbar-static-top {
+  padding: 0;
+  width: 100%;
+  align-items: inherit
+}
+.navbar-static-side {
+  transition: width 0s
+}
+.navbar-static-top {
+  background: #f3f3f4
+}
+.navbar-top-links {
+  text-align: right
+}

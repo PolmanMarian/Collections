@@ -1,0 +1,34 @@
+<app-page-wrapper>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox product-detail">
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="product-images">
+                <div>
+                  <div class="image-imitation">
+                    {{this.item.name}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <h2 class="font-bold m-b-xs">
+                {{this.item.name}}
+              </h2>
+              <small>{{this.item.description}}</small>
+              <hr>
+              <div>
+                <div class="btn-group">
+                  <button (click)="onContactUser()" class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i> Contact author</button>
+                  <button class="btn btn-white btn-sm"><i class="fa fa-cart-plus"></i> Make an offer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-page-wrapper>

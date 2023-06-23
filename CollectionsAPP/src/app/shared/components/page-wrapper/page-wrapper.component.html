@@ -1,0 +1,26 @@
+<div id="wrapper">
+
+    <div *ngIf="currentSession.isLoggedIn">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div *ngIf="!currentSession.isLoggedIn">
+      <app-logged-out-sidebar></app-logged-out-sidebar>
+    </div>
+
+
+    <div id="page-wrapper" class="gray-bg">
+
+    <div *ngIf="currentSession.isLoggedIn">
+      <app-header></app-header>
+    </div>
+
+    <div *ngIf="!currentSession.isLoggedIn">
+      <app-logged-out-header></app-logged-out-header>
+    </div>
+
+    <p></p>
+    <ng-content></ng-content>
+    <app-footer></app-footer>
+  </div>
+</div>

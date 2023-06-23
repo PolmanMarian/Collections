@@ -1,0 +1,24 @@
+<app-page-wrapper>
+  <div class="col-lg-12">
+    <form [formGroup]="form" (ngSubmit)="onAddItem()" style="padding-right: 250px">
+      <div class="form-group row"><label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10"><input formControlName="name" type="text" class="form-control" required id = "name" placeholder="Item name"></div>
+      </div>
+      <div class="form-group row"><label class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10"><input formControlName="description" style="padding-bottom: 80px" required id = "description" type="text" class="form-control" placeholder="Inomine pa trizeci spirtitu santi..."></div>
+      </div>
+      <p></p>
+      <span style="padding-right: 154px">Status</span>
+      <span style="padding-right: 30px" (click)="onSetStatus(stat)" *ngFor="let stat of this.status" >{{stat}}</span>
+      <span></span>
+      <p></p>
+      <span style="padding-right: 165px">Tags</span>
+      <span style="padding-right: 30px" (click)="addTag(tag)" *ngFor="let tag of tags; index as i" >{{tag.name}}</span>
+      <p></p>
+      <span style="padding-right: 118px">Added tags</span>
+      <span style="padding-right: 30px" (click)="remove(tag)" *ngFor="let tag of this.addedTags; index as i" >{{tag.name}}</span>
+      <p></p>
+      <button type="submit" style="margin-left: 200px">Add item</button>
+    </form>
+  </div>
+</app-page-wrapper>

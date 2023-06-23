@@ -1,0 +1,37 @@
+<div>
+  <nav class="navbar navbar-static-top">
+    <div *ngIf="router.url === '/' " class="navbar-header">
+      <form  role="search" class="navbar-form-custom" action="search_results.html">
+        <div class="form-group">
+          <div style="overflow-x:auto;">
+            <input [(ngModel)]="searchedTerm" type="text" placeholder="Search for something..." class="form-control" name="top_search" id="top_search">
+            <select [(ngModel)]="selectedTag" matNativeControl required name="tag_search" id="tag_search">
+              <option *ngFor = "let tag of tags" value="{{tag.name}}">{{tag.name}}</option>
+            </select>
+            <button (click)="onSearchClick()">search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+<!--    <span style="font-weight: bolder; position: center">{{this.router.url.toUpperCase()}}</span>-->
+
+    <ul class="nav navbar-top-links navbar-right">
+      <li>
+        <a (click)="onHomeClick()">
+          <i class="fa fa-home"></i>
+        </a>
+      </li>
+      <li>
+        <a (click)="onNotificationClick()">
+          <i class="fa fa-bell"></i>
+        </a>
+      </li>
+      <li>
+        <a (click)="logOut()">
+          <i class="fa fa-sign-out"></i> Log out
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
