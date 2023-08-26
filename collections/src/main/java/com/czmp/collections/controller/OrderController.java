@@ -34,7 +34,7 @@ public class OrderController {
         Order order = new Order();
         order.setOrderProducts(new ArrayList<>());
         order.setDate(new Date());
-        order.setStatus(Status.PREPARING);
+        order.setStatus(Status.NEW);
         Double price = 0.0;
 
         for(OrderProductDTO orderProductDTO : orders.getProductList()) {
@@ -45,6 +45,7 @@ public class OrderController {
                 Long quantity= orderProductDTO.getQuantity();
                 Long availableQuantity = productService.getAllowedQuantityAndSave(quantity, product);
                 if (availableQuantity > 0) {
+                    orderProduct.setProduct(product);
                     orderProduct.setQuantity(availableQuantity);
                     price = price + product.getPrice() * availableQuantity;
                     order.getOrderProducts().add(orderProduct);
@@ -57,5 +58,23 @@ public class OrderController {
         return ResponseEntity.ok(orderService.save(order));
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
+        try {
+            orderService.delete(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/update-status/{id}")
+    public ResponseEntity<?> updateOrderStatus(@PathVariable Long id) {
+        try {
+            orderService.updateStatus(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

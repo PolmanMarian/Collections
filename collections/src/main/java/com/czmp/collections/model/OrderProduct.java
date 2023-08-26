@@ -1,5 +1,7 @@
 package com.czmp.collections.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +15,8 @@ public class OrderProduct implements Serializable {
 
     @Id
     @ManyToOne()
+    @JsonManagedReference
+    @JsonIdentityReference(alwaysAsId=true)
     @JoinColumn(name = "order_id")
     private Order order;
 

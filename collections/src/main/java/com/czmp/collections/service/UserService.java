@@ -2,6 +2,7 @@ package com.czmp.collections.service;
 
 import com.czmp.collections.dto.UserLoginDTO;
 import com.czmp.collections.dto.UserRegisterDTO;
+import com.czmp.collections.model.Product;
 import com.czmp.collections.model.Role;
 import com.czmp.collections.model.User;
 import com.czmp.collections.repository.UserRepository;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,6 +29,13 @@ public class UserService {
             return user.get();
         }
         throw new UsernameNotFoundException(username);
+    }
+    public List<User> get() {
+            return userRepository.findAll();
+    }
+
+    public void delete(Long id) {
+        userRepository.deleteById(id);
     }
     public ResponseEntity<?> login(UserLoginDTO userLoginDTO) {
         Optional<User> user = userRepository.findUserByUsername(userLoginDTO.getUsername());

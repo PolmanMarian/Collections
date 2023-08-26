@@ -1,0 +1,23 @@
+<app-page-wrapper>
+    <div>
+      <h2>Users List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td contenteditable="false">{{user.id}}</td>
+            <td contenteditable="true">{{user.username}}</td>
+            <td contenteditable="true">{{user.role}}</td>
+            <td><button (click)="saveUser(user,i)">Update user</button></td>
+            <td><button (click)="deleteUser(user.id)">Delete user</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-page-wrapper>

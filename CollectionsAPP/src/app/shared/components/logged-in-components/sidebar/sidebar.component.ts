@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {SessionService} from "../../../services/session.service";
-import {DataService} from "../../../services/data.service";
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -39,12 +38,20 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['../orders'])
   }
 
+  redirectToUsers() {
+    this.router.navigate(['../users'])  
+  }
+
   redirectToAddOrder() {
     this.router.navigate(['../add-order'])
   }
 
   redirectToAddProduct() {
     this.router.navigate(['../add-product'])
+  }
+
+  redirectToAddUser() {
+    this.router.navigate(['../add-user'])  
   }
 
 }

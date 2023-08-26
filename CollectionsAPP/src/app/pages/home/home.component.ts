@@ -36,18 +36,6 @@ export class HomeComponent implements OnInit {
        })
   }
 
-  // getItemId(i: number): number {
-  //     return (this.items.at(i) ?? SessionService.getInstance().getEmptyItemDto()).id ?? 0 ;
-  // }
-
-  // isLikedItem(i: number): boolean {
-  //   if((localStorage.getItem("isLoggedIn") ?? "false") === "true"){
-  //     return SessionService.getInstance().currentUser.likedItems.includes(this.getItemId(i));
-  //   } else {
-  //     return false
-  //   }
-  // }
-
   saveProduct(product: ProductDtoRequest, index: number){
     this.dataService.addProduct(product).subscribe({
       complete:() => {},
@@ -58,6 +46,16 @@ export class HomeComponent implements OnInit {
      })
   }
 
+  deleteProduct(id: number){
+    this.dataService.deleteProduct(id).subscribe({
+      complete:() => {},
+      error: (error) => {console.log(error)},
+      next: () => {
+        this.router.navigate([this.route.url]);
+      }
+     })
+  }
+  
   onClickItem(id: number) {
     this.router.navigate(['../item/details/'+id],{
       onSameUrlNavigation:"reload"

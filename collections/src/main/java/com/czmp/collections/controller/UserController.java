@@ -6,10 +6,7 @@ import com.czmp.collections.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/user")
@@ -22,8 +19,22 @@ public class UserController {
     public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO) {
         return ResponseEntity.ok(userService.login(userLoginDTO));
     }
+    @GetMapping("get")
+    public ResponseEntity<?> get() {
+        return ResponseEntity.ok(userService.get());
+    }
     @PostMapping("register")
     public ResponseEntity<?> register(@RequestBody UserRegisterDTO userRegisterDTO) {
         return ResponseEntity.ok(userService.register(userRegisterDTO));
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        try {
+            userService.delete(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

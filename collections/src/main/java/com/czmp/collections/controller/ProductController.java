@@ -22,11 +22,23 @@ public class ProductController {
     @PostMapping("/save")
     public ResponseEntity<?> saveProduct(@RequestBody ProductDTO productDTO) {
         Product product =  new Product();
-        product.setId(product.getId());
+        if(productDTO.getId() != 0){
+            product.setId(productDTO.getId());
+        }
         product.setName(productDTO.getName());
         product.setPrice(productDTO.getPrice());
         product.setSupply(productDTO.getSupply());
         return ResponseEntity.ok(productService.save(product));
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        try {
+            productService.delete(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

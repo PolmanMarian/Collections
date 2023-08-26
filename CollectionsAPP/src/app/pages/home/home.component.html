@@ -12,11 +12,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let product of products; let i = index">
-          <td contenteditable="false">{{product.id}}</td>
-          <td contenteditable="true">{{product.name}}</td>
+          <td contenteditable="false" >{{product.id}}</td>
+          <td contenteditable="true" >{{product.name}}</td>
           <td contenteditable="true">{{product.price}}</td>
           <td contenteditable="true">{{product.supply}}</td>
-          <td><button class="fa-save" (click)="saveProduct(product,i)"></button></td>
+          <td><button (click)="saveProduct(product,i)">UpdateProduct</button></td>
+          <td><button (click)="deleteProduct(product.id)">DeleteProduct</button></td>
         </tr>
       </tbody>
     </table>

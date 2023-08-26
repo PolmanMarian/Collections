@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -17,7 +16,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoggedOutHeaderComponent } from './shared/components/logged-out-components/logged-out-header/logged-out-header.component';
 import { LoggedOutSidebarComponent } from './shared/components/logged-out-components/logged-out-sidebar/logged-out-sidebar.component';
 import { DataTablesModule } from 'angular-datatables';
-import { AddOrderComponent } from './pages/add-order/add-order.component'
+import { AddOrderComponent } from './pages/add-order/add-order.component';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+import { UsersComponent } from './pages/users/users.component';
+import { OrdersComponent } from './pages/orders/orders.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +35,9 @@ import { AddOrderComponent } from './pages/add-order/add-order.component'
     LoggedOutHeaderComponent,
     LoggedOutSidebarComponent,
     AddOrderComponent,
+    AddUserComponent,
+    UsersComponent,
+    OrdersComponent,
   ],
   imports: [
     AlertModule.forRoot(),

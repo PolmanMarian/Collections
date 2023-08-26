@@ -13,14 +13,14 @@
             </option>
           </select>
         <div class="col-sm-2"><input formControlName="productQuantity" required id = "productQuantity" type="number" class="form-control" placeholder="Quantity"></div>
-        <button class="col-sm-2" (click)="onAddProduct()">Add product</button>
+        <button class="col-sm-2" (click)="onAddProduct($event)">Add product</button>
         </div>
 
         <button type="submit" style="margin-left: 200px">Add order</button>
         <ul>
             <li *ngFor="let entry of addedProducts; let index = index">
               {{ entry.product.name }} - {{ entry.quantity }}
-              <a (click)="onRemoveProduct(index)"><i class="fab fa-trash"></i> </a>
+              <a (click)="onRemoveProduct(index)">delete</a>
             </li>
           </ul>
       </form>

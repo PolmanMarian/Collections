@@ -5,8 +5,15 @@ import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {AddProductComponent} from "./pages/add-product/add-product.component";
 import { AddOrderComponent } from './pages/add-order/add-order.component';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+import { UsersComponent } from './pages/users/users.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent
+  },
   {
     path: '',
     component: HomeComponent
@@ -20,8 +27,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'order',
-    component: HomeComponent
+    path: 'orders',
+    component: OrdersComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent
   },
   {
     path: 'add-order',
@@ -30,6 +41,10 @@ const routes: Routes = [
   {
     path: 'add-product',
     component: AddProductComponent
+  },
+  {
+    path: 'add-user',
+    component: AddUserComponent
   }
 
 ];

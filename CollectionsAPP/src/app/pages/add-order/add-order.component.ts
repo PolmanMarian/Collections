@@ -40,7 +40,8 @@ export class AddOrderComponent implements OnInit {
     })
   }
 
-  onAddProduct() {
+  onAddProduct(event: Event) {
+    event.preventDefault();
     let selectedProduct = this.form.controls.product.value
     let quantity = this.form.controls.productQuantity.value ?? 0
     this.addedProducts.push({product:selectedProduct, quantity:quantity});

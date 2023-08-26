@@ -1,9 +1,14 @@
 package com.czmp.collections.loader;
 
+import com.czmp.collections.dto.UserRegisterDTO;
 import com.czmp.collections.model.Product;
+import com.czmp.collections.model.Role;
+import com.czmp.collections.model.User;
 import com.czmp.collections.repository.ProductRepository;
+import com.czmp.collections.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -13,10 +18,12 @@ import java.util.List;
 public class ProductDataLoader implements CommandLineRunner {
 
     private final ProductRepository productRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public ProductDataLoader(ProductRepository productRepository) {
+    public ProductDataLoader(ProductRepository productRepository, UserRepository userRepository) {
         this.productRepository = productRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -32,5 +39,14 @@ public class ProductDataLoader implements CommandLineRunner {
 
         // Save the products to the database
         productRepository.saveAll(products);
+
+        List<User> users = Arrays.asList(
+                new User(0L,"Marian","$2a$10$gmtrs1G4TrYSz5N2OESlmuMcAukgAS1KIPMfX3/P49GE8l6jQsXOK", Role.ADMIN),
+                new User(0L,"Andrei","$2a$10$gmtrs1G4TrYSz5N2OESlmuMcAukgAS1KIPMfX3/P49GE8l6jQsXOK",Role.ADMIN),
+                new User(0L,"Cezar","$2a$10$gmtrs1G4TrYSz5N2OESlmuMcAukgAS1KIPMfX3/P49GE8l6jQsXOK",Role.USER)
+        );
+
+        userRepository.saveAll(users);
+
     }
 }

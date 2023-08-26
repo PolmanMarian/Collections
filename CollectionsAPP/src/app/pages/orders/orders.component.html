@@ -1,0 +1,25 @@
+<app-page-wrapper>
+    <div>
+      <h2>Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders; let i = index">
+            <td contenteditable="false">{{order.id}}</td>
+            <td contenteditable="true">{{order.status}}</td>
+            <td contenteditable="true">{{order.date}}</td>
+            <td contenteditable="true">{{order.price}}</td>
+            <td><button (click)="updateStatus(order.id)">UpdateStatus</button></td>
+            <td><button (click)="deleteOrder(order.id)">DeleteOrder</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-page-wrapper>
