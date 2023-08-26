@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../shared/services/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthRequest} from "../../internal-models/auth-request";
 import {ResponseMessage} from "../../shared/connection/models/response-message";
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -33,9 +33,6 @@ export class RegisterComponent {
       let username = this.form.controls.username.value ?? "";
       let password = this.form.controls.password.value ?? "";
       let confirmPassword = this.form.controls.confirmPassword.value ?? "";
-
-      console.log(password)
-      console.log(confirmPassword)
 
       if (password != confirmPassword){
         this.message = "Missmatching passwords";

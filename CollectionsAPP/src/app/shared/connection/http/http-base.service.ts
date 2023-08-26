@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {SessionService} from "../../services/session.service";
+import { SessionService } from '../../services/session.service';
 
 export abstract class HttpBaseService {
 
@@ -11,21 +11,13 @@ export abstract class HttpBaseService {
   public get<T>(entityPath: string): Observable<T> {
     const path = `${this.getBasePath()}${entityPath}`;
     console.log(path)
-    return this.http.get<T>(path, {headers: new HttpHeaders({
-      'Authorization' : `Bearer ${SessionService.getInstance().getCurrentSession().authToken}`,
-        'Access-Control-Allow-Origin': 'http://localhost:4200',
-        'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'
-      })});
+    return this.http.get<T>(path);
   }
 
   public post<T, U>(entityPath: string, body: U): Observable<T> {
     const path = `${this.getBasePath()}${entityPath}`;
     console.log(path);
-    return this.http.post<T>(path, body,{headers: new HttpHeaders({
-        'Authorization' : `Bearer ${SessionService.getInstance().getCurrentSession().authToken}`,
-        'Access-Control-Allow-Origin': 'http://localhost:4200',
-        'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'
-      })});
+    return this.http.post<T>(path, body);
   }
 
   public put<T, U>(entityPath: string, body: U): Observable<T> {

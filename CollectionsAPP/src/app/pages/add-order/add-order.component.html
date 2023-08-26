@@ -1,0 +1,29 @@
+<app-page-wrapper>
+    <div class="col-lg-12">
+      <form [formGroup]="form" (ngSubmit)="onAddOrder()" style="padding-right: 250px">
+       
+        <label class="col-sm-2 col-form-label">Order</label>
+        <label class="col-sm-2 col-form-label">Price: {{price}}$</label>
+        
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Product</label>
+        <select formControlName="product" class="col-sm-6">
+            <option *ngFor="let product of products" [ngValue]="product">
+              {{ product.name }}
+            </option>
+          </select>
+        <div class="col-sm-2"><input formControlName="productQuantity" required id = "productQuantity" type="number" class="form-control" placeholder="Quantity"></div>
+        <button class="col-sm-2" (click)="onAddProduct()">Add product</button>
+        </div>
+
+        <button type="submit" style="margin-left: 200px">Add order</button>
+        <ul>
+            <li *ngFor="let entry of addedProducts; let index = index">
+              {{ entry.product.name }} - {{ entry.quantity }}
+              <a (click)="onRemoveProduct(index)"><i class="fab fa-trash"></i> </a>
+            </li>
+          </ul>
+      </form>
+    </div>
+  </app-page-wrapper>
+  

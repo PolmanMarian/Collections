@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SessionDetails} from "../../internal-models/session-details";
 import {EndUserDto} from "../connection/models/end-user.dto";
-import {ItemDto, Status} from "../connection/models/item.dto";
-import {ItemCollectionDto} from "../connection/models/item-collection.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +26,6 @@ export class SessionService {
 
   saveUserData(currentSession: SessionDetails): void {
     localStorage.setItem('username',currentSession.username);
-    localStorage.setItem('authToken',currentSession.authToken);
     localStorage.setItem('isAdmin',currentSession.isAdmin.toString());
     localStorage.setItem('isLoggedIn',currentSession.isLoggedIn.toString());
     this.currentSession = currentSession;
@@ -43,24 +40,19 @@ export class SessionService {
 
     return new SessionDetails(
       userName == null ? "" : userName,
-      authToken == null ? "" : authToken,
       isLoggedIn ==  null ? false : (isLoggedIn === 'true'),
       isAdmin == null ? false : (isAdmin === 'true')
     )
   }
 
-  getEmptyUser() :EndUserDto {
-    return new EndUserDto(0,"",[],[],[],"")
-  }
-
-  getEmptyItemDto() :ItemDto {
-    return new ItemDto(9,"", "",Status.notForSale, [])
-  }
+  // getEmptyUser() :EndUserDto {
+  //   return new EndUserDto(0,"",[],[],[],"")
+  // }
 
   clearSession() {
     localStorage.clear();
-    this.currentSession = new SessionDetails("","",false,false);
-    this.currentUser = new EndUserDto(0,"",[],[],[],"");
+    // this.currentSession = new SessionDetails("",false,false);
+    // this.currentUser = new EndUserDto(0,"",[],[],[],"");
   }
 
 }

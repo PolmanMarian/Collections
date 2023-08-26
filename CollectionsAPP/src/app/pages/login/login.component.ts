@@ -1,13 +1,12 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthRequest} from "../../internal-models/auth-request";
-import {AuthService} from "../../shared/services/auth.service";
-import {SessionService} from "../../shared/services/session.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {LoginResponseDto} from "../../shared/connection/models/login-response.dto";
 import {SessionDetails} from "../../internal-models/session-details";
-import {DataService} from "../../shared/services/data.service";
-import {EndUserDto} from "../../shared/connection/models/end-user.dto";
+import { DataService } from 'src/app/shared/services/data.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { SessionService } from 'src/app/shared/services/session.service';
 
 @Component({
   selector: 'app-login',
@@ -44,14 +43,15 @@ export class LoginComponent {
       this.authService.loginPostRequest(loginRequest)
         .subscribe({
             complete: () => {
-              this.dataService.setCurrentUser(true)
+              // this.dataService.setCurrentUser(true)
             },
             error: (error) => { this.message = error.error.message },
             next: (response : LoginResponseDto | String) => {
               let loginResponse = response as LoginResponseDto
               console.log(response)
-              let currentSession = new SessionDetails(username,loginResponse.accessToken,true, false);
+              let currentSession = new SessionDetails(username,true, loginResponse.role == "Admin" ? true : false);
               SessionService.getInstance().saveUserData(currentSession)
+              this.router.navigate([".."])
             }
           });
       }

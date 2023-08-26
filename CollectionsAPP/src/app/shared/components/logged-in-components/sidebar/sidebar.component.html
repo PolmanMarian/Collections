@@ -2,27 +2,22 @@
   <ul class="nav">
     <li class="nav-header">
       <div>
-        <a (click)="onClickUsername(this.userName)">
-          <strong>{{this.userName.toUpperCase()}}</strong>
+        <a>
+          <strong>Oldies Apahida</strong>
         </a>
       </div>
     </li>
     <li>
-      <a (click)="navigateToLikedItems()"><i class="fa fa-thumbs-up"></i> <span class="nav-label">  Liked items</span></a>
+      <a (click)="redirectToOrders()"><i class="fa fa-thumbs-up"></i> <span class="nav-label">  Orders</span></a>
     </li>
     <li>
-      <a (click)="navigateToMessages()"><i class="fab fa-stack-exchange"></i> <span class="nav-label">  Messages</span></a>
+      <a (click)="redirectToProducts()"><i class="fab fa-stack-exchange"></i> <span class="nav-label">  Products</span></a>
     </li>
     <li>
-      <a><i class="fa fa-dollar-sign"></i> <span class="nav-label">  Offers</span></a>
+      <a (click)="redirectToAddOrder()"><i class="fab fa-stack-plus"></i> <span class="nav-label">  Add Order</span></a>
     </li>
     <li>
-      <p></p>
-      <a style="color: seagreen">
-        Your collections
-      </a></li>
-    <li *ngFor="let category of categories; index as i">
-      <a (click)="redirectToCatergory(category)" style="color: white"><i class="fa fa-add"></i> {{category}}</a>
+      <a (click)="redirectToAddProduct()"><i class="fab fa-stack-add"></i> <span class="nav-label">  Add Product</span></a>
     </li>
   </ul>
 </nav>

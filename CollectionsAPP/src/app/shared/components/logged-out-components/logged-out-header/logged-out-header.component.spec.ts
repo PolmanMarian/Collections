@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LoggedOutHeaderComponent } from './logged-out-header.component';
 
 describe('LoggedOutHeaderComponent', () => {

@@ -13,11 +13,11 @@ export class AuthService {
   constructor(private http: JavaHttpService) {}
 
   loginPostRequest(loginRequest: AuthRequest): Observable<LoginResponseDto | String> {
-    return this.http.post<LoginResponseDto, AuthRequest>(`/auth/login`, loginRequest);
+    return this.http.post<LoginResponseDto, AuthRequest>(`/user/login`, loginRequest);
   }
 
   registerPostRequest(registerRequest: AuthRequest): Observable<ResponseMessage> {
-    return this.http.post<ResponseMessage, AuthRequest>(`/auth/register`,registerRequest);
+    return this.http.post<ResponseMessage, AuthRequest>(`/user/register`,registerRequest);
   }
 
 }

@@ -1,22 +1,24 @@
 <app-page-wrapper>
-  <div class="row">
-      <div *ngFor="let item of items; index as i" class="col-md-3">
-        <div class="ibox">
-          <div class="ibox-content product-box">
-            <div (click)="onClickItem(item.id)" class="product-imitation">
-              {{item.name}}
-            </div>
-            <div class="product-desc">
-              <span (click)="unlike(i)" *ngIf = "isLikedItem(i)" class="product-price" style="background-color: darkred">Unlike</span>
-              <span (click)="like(i)" *ngIf = "!isLikedItem(i)" class="product-price">Like</span>
-              <a routerLink="" class="product-name">
-                {{item.description}}</a>
-              <div class="small">
-                {{item.tags.toString()}}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div>
+    <h2>Product List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Supply</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+          <td contenteditable="false">{{product.id}}</td>
+          <td contenteditable="true">{{product.name}}</td>
+          <td contenteditable="true">{{product.price}}</td>
+          <td contenteditable="true">{{product.supply}}</td>
+          <td><button class="fa-save" (click)="saveProduct(product,i)"></button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </app-page-wrapper>

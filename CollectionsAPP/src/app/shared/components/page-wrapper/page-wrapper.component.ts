@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SessionDetails} from "../../../internal-models/session-details";
-import {SessionService} from "../../services/session.service";
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-page-wrapper',

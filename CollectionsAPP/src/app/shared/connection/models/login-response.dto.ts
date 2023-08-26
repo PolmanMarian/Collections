@@ -1,6 +1,7 @@
 export class LoginResponseDto {
 
-  accessToken: string = '';
-  tokenType: string = '';
-
+  id: number = 0;
+  username: string = '';
+  password: string = '';
+  role: string = '';
 }

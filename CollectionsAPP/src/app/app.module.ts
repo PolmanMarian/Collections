@@ -11,18 +11,13 @@ import {AlertModule} from "ngx-bootstrap/alert";
 import { SidebarComponent } from './shared/components/logged-in-components/sidebar/sidebar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ItemDetailsComponent } from './pages/item-details/item-details.component';
-import { ChatComponent } from './pages/chat/chat.component';
-import { AddItemComponent } from './pages/add-item/add-item.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 import { PageWrapperComponent } from './shared/components/page-wrapper/page-wrapper.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoggedOutHeaderComponent } from './shared/components/logged-out-components/logged-out-header/logged-out-header.component';
 import { LoggedOutSidebarComponent } from './shared/components/logged-out-components/logged-out-sidebar/logged-out-sidebar.component';
-import { NotificationsComponent } from './pages/notifications/notifications.component';
-import { CollectionComponent } from './pages/collection/collection.component';
-import { UserDetailsComponent } from './pages/user-details/user-details.component';
-import { LikedItemsComponent } from './pages/liked-items/liked-items.component';
-import { SearchComponent } from './pages/search/search.component';
+import { DataTablesModule } from 'angular-datatables';
+import { AddOrderComponent } from './pages/add-order/add-order.component'
 
 @NgModule({
   declarations: [
@@ -33,17 +28,11 @@ import { SearchComponent } from './pages/search/search.component';
     SidebarComponent,
     LoginComponent,
     RegisterComponent,
-    ItemDetailsComponent,
-    ChatComponent,
-    AddItemComponent,
+    AddProductComponent,
     PageWrapperComponent,
     LoggedOutHeaderComponent,
     LoggedOutSidebarComponent,
-    NotificationsComponent,
-    CollectionComponent,
-    UserDetailsComponent,
-    LikedItemsComponent,
-    SearchComponent,
+    AddOrderComponent,
   ],
   imports: [
     AlertModule.forRoot(),
@@ -52,9 +41,9 @@ import { SearchComponent } from './pages/search/search.component';
     HttpClientModule,
     AlertModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
-  // providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
